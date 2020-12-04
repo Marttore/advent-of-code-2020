@@ -1,6 +1,6 @@
 using DelimitedFiles
 
-a = readdlm("input_2.txt")
+passwords = readdlm("input_2.txt")
 
 function is_valid_a(password, letter, lower, upper)
     return lower <= count(x -> x == letter, password) <= upper
@@ -17,8 +17,8 @@ function parse_line(line)
     return (password, letter, lower, upper)
 end
 
-count_a = count(x -> x==true, [is_valid_a(x...) for x in parse_line.(eachrow(a))] )
-count_b = count(x -> x==true, [is_valid_b(x...) for x in parse_line.(eachrow(a))] ) 
+count_a = count(x -> is_valid_a(x...),  parse_line.(eachrow(passwords)) )
+count_b = count(x -> is_valid_b(x...),  parse_line.(eachrow(passwords)) )
 
 println("count of a: ", count_a)
 println("count of b: ", count_b)
