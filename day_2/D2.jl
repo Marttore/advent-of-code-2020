@@ -7,7 +7,7 @@ function is_valid_a(password, letter, lower, upper)
 end
 
 function is_valid_b(password, letter, lower, upper)
-    return (password[lower] == letter || password[upper] == letter) && !(password[lower] == letter && password[upper] == letter)
+    return (password[lower] == letter) ⊻ (password[upper] == letter)
 end
 
 function parse_line(line)

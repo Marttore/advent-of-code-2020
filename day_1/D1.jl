@@ -3,7 +3,7 @@ open("input_1.txt") do file
     lines = parse.(Int, lines)
 end
 
-numbers = Set(lines)
+numbers = BitSet(lines)
 
 function find_complement(target)
     for l in lines

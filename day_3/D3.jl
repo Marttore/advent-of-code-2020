@@ -8,7 +8,7 @@ function downhill(hill, slope)
 
     while pos.row <= length(hill)
         hill[pos.row][pos.column] == '#' && global treecount += 1
-        pos = (row = pos.row + slope.Δy, column = ((pos.column - 1 + slope.Δx) % width) + 1)
+        pos = (row = pos.row + slope.Δy, column = mod1(pos.column + slope.Δx, width))
     end
 
     treecount

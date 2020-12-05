@@ -32,7 +32,7 @@ function find_keywords(passport)
 end
 
 function validate_keys(key_dict, mandatoryfields)
-    all([mf ∈ keys(key_dict) for mf ∈ mandatoryfields])
+    all([haskey(key_dict, mf) for mf ∈ mandatoryfields])
 end
 
 function validate_fields(key_dict, rules)
